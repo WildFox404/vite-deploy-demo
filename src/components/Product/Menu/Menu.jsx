@@ -1,13 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from '@ant-design/icons';
 import { Button, Menu } from 'antd';
 import { replace, useNavigate } from 'react-router-dom';
 
@@ -16,7 +7,6 @@ const items = [
   {
     key: '1',
     label: '个人博客',
-    icon: <ContainerOutlined />,
     children: [
       {
         key: '/product/myweb',
@@ -27,7 +17,6 @@ const items = [
   {
     key: '2',
     label: 'AUST课表APP',
-    icon: <MailOutlined />,
     children: [
       {
         key: '/product/app',
@@ -42,7 +31,6 @@ const items = [
   {
     key: '3',
     label: '自动校园网链接',
-    icon: <AppstoreOutlined />,
     children: [
       {
         key: '/product/wifi',
@@ -61,7 +49,6 @@ const items = [
   {
     key: '4',
     label: 'Electron(计划中)',
-    icon: <DesktopOutlined />,
     children: [
       {
         key: '/product/electron',
@@ -72,7 +59,6 @@ const items = [
   {
     key: '5',
     label: 'UNITY_GAME',
-    icon: <MenuFoldOutlined />,
     children: [
       {
         key: '/product/gamerain',
@@ -87,7 +73,6 @@ const items = [
   {
     key: '6',
     label: '3D_MODEL',
-    icon: <MenuFoldOutlined />,
     children: [
       {
         key: '/product/model',
