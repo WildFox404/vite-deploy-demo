@@ -6,7 +6,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
-      'assets': '/src/assets',
+      'assets': 'src/assets',
       // 可以根据需要添加更多的别名
     },
   },
