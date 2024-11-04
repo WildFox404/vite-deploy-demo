@@ -4,7 +4,6 @@ import { change } from '../../stores/styleSlice';
 import Logo from 'assets/logo.png';
 import LogoTextDark from 'assets/logoTextDark.png';
 import LogoTextLight from 'assets/logoTextLight.png';
-import LogoTextBlue from 'assets/LogoTextBlue.png';
 function NotFound() {
   const canvasRef = useRef(null);
   const dispatch = useDispatch();
