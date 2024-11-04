@@ -15,7 +15,7 @@ import Electron from "./components/Product/Electron/Electron";
 import Gamerain from "./components/Product/Game/Gamerain";
 import Gamewantopen from "./components/Product/Game/Gamewantopen";
 import Model from "./components/Product/Model/Model";
-import { Provider,} from 'react-redux';
+import { Provider} from 'react-redux';
 import store from "./store";
 
 const router = createBrowserRouter([
