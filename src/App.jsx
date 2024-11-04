@@ -25,52 +25,52 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        path:"home",
+        path:"/vite-deploy-demo/home",
         element:<Home/>
       },
       {
-        path:"product",
+        path:"/product",
         element:<Product/>,
         children:[
           {
             index:true,
-            path:"app",
+            path:"/app",
             element:<Austapp/>
           },
           {
-            path:"appdisplay",
+            path:"/appdisplay",
             element:<Austappdisplay/>
           },
           {
-            path:"wifi",
+            path:"/wifi",
             element:<Wifi/>
           },
           {
-            path:"wifidisplay",
+            path:"/wifidisplay",
             element:<Wifidisplay/>
           },
           {
-            path:"wifiuse",
+            path:"/wifiuse",
             element:<Wifiuse/>
           },
           {
-            path:"myweb",
+            path:"/myweb",
             element:<Myweb/>
           },
           {
-            path:"electron",
+            path:"/electron",
             element:<Electron/>
           },
           {
-            path:"gamerain",
+            path:"/gamerain",
             element:<Gamerain/>
           },
           {
-            path:"gamewantopen",
+            path:"/gamewantopen",
             element:<Gamewantopen/>
           },
           {
-            path:"model",
+            path:"/model",
             element:<Model/>
           }
         ]
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/notfound",
+    path:"*",
     element:<NotFound/>
   }
 ]);
