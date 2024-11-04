@@ -41,9 +41,9 @@ const Home = () => {
                 <AnimatedFadeIn>
                     <Myanime images={images}/>
                 </AnimatedFadeIn>
-                {/* <AnimatedFadeIn>
+                <AnimatedFadeIn>
                     <Mylike/>
-                </AnimatedFadeIn> */}
+                </AnimatedFadeIn>
             </div>
         </div>
     )
