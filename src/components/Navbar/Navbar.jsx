@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react';
 import {useDispatch,useSelector } from 'react-redux'
 import { change } from '../../stores/styleSlice';
 import Logo from 'assets/logo.png';
-import LogoTextDark from 'assets/logoTextDark.png';
 import LogoTextLight from 'assets/logoTextLight.png';
 import LogoTextBlue from 'assets/LogoTextBlue.png';
 import Arrow from 'assets/arrow.svg';
