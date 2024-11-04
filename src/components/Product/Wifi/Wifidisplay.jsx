@@ -1,5 +1,5 @@
-import install from '../../../assets/wifi/install.png'
-import complete from '../../../assets/wifi/complete.png'
+import install from 'assets/wifi/install.png'
+import complete from 'assets/wifi/complete.png'
 
 const Wifidisplay = () => {
 

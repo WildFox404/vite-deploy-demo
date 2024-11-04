@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
 import AnimatedFadeIn from "../../Util/AnimatedFadeIn";
-import Logo from '../../../assets/logo.png'; // 确保导入你的 logo 图片
-import LogoTextLight from '../../../assets/LogoTextLight.png'; // 确保导入你的 logo 文本图片
+import Logo from 'assets/logo.png'; // 确保导入你的 logo 图片
+import LogoTextLight from 'assets/LogoTextLight.png'; // 确保导入你的 logo 文本图片
 const Homeheader = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null); // 添加对父容器的引用

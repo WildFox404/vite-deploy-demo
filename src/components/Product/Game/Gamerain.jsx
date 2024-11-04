@@ -1,4 +1,4 @@
-import Image from "../../../assets/game/gamerain.webp"
+import Image from "assets/game/gamerain.webp"
 import { useRef } from "react";
 const Gamerain = () => {
     const Ref1 = useRef(null);

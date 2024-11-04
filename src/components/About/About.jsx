@@ -1,5 +1,5 @@
-import qqImage from "../../assets/qqImage.jpg"
-import wechatImage from "../../assets/wechatImage.jpg"
+import qqImage from "assets/qqImage.jpg"
+import wechatImage from "assets/wechatImage.jpg"
 
 const heightStyle = {
     height: `calc(100vh - 65.6px)`,

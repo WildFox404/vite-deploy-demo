@@ -1,8 +1,8 @@
-import PNG1 from "../../../assets/game1.webp"
-import PNG2 from "../../../assets/game2.jpg"
-import PNG3 from "../../../assets/test1.png"
-import PNG4 from "../../../assets/game3.webp"
-import PNG5 from "../../../assets/game3.jpg"
+import PNG1 from "assets/game1.webp"
+import PNG2 from "assets/game2.jpg"
+import PNG3 from "assets/test1.png"
+import PNG4 from "assets/game3.webp"
+import PNG5 from "assets/game3.jpg"
 const Mygame = () => {
     return (
         <div className='w-full mt-[220px] px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 my-4' style={{opacity:1,transform: 'none'}}>
