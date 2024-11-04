@@ -3,7 +3,7 @@ import {useDispatch,useSelector } from 'react-redux'
 import { change } from '../../stores/styleSlice';
 import Logo from 'assets/logo.png';
 import LogoTextLight from 'assets/logoTextLight.png';
-import LogoTextBlue from 'assets/LogoTextBlue.png';
+import LogoTextBlue from 'assets/logoTextBlue.png';
 import Arrow from 'assets/arrow.svg';
 import List from 'assets/list.svg'
 import { Outlet } from 'react-router-dom'; // 导入Outlet
