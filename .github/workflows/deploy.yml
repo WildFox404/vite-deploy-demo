@@ -20,12 +20,6 @@ jobs:
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
-      - name: Install dependencies for project
-        run: npm install antd echarts-for-react @reduxjs/toolkit 
-
-      - name: Install redux
-        run: npm install -save redux react-redux
-
       - name: Build project
         run: npm run build
 
