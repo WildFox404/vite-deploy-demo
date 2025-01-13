@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [vue(),vueJsx()],
   resolve:{
     alias:{
-      '@':'/src'
+      '@':'/src',
+      '@assets':'/src/assets',
     }
   },
   base:"/vite-deploy-demo/",

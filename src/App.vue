@@ -5,10 +5,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
+<script setup lang="ts">
+import { ref } from 'vue'
+
+defineProps<{
+  msg: string
+}>()
 </script>
 
 <style scoped>
