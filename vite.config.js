@@ -10,5 +10,5 @@ export default defineConfig({
       '@assets':'/src/assets',
     }
   },
-  base : process.env.VITE_BASE_URL || '/',
+  base : '/vite-deploy-demo/'
 })
