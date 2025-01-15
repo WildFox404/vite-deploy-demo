@@ -12,7 +12,7 @@ defineProps<{
   msg: string
 }>()
 </script>
-
+ 
 <style scoped>
 .logo {
   height: 6em;
