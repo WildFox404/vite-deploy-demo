@@ -16,6 +16,6 @@ export default defineConfig({
       '@assets':'/src/assets',
     }
   },
-  // base : '/vite-deploy-demo/'
-  base: '/'
+  base : '/vite-deploy-demo/'
+  // base: '/'
 })
