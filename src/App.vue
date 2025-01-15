@@ -1,29 +1,42 @@
-<!-- filepath: /Users/zhuanz/Desktop/1111/vite-deploy-demo/src/App.vue -->
+
 <template>
-  <div id="app">
+  <div :class="themeClass">
+    <button @click="toggleTheme">Toggle Theme</button>
     <router-view></router-view>
+    <p class="text">This is a paragraph.</p>
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script setup>
+import { computed, getCurrentInstance } from 'vue'
 
-defineProps<{
-  msg: string
-}>()
+const { proxy } = getCurrentInstance()
+
+const themeClass = computed(() => {
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+})
+
+const toggleTheme = () => {
+  proxy.$toggleTheme()
+}
 </script>
- 
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.light .text {
+  color: black;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.dark .text {
+  color: white;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.light button {
+  background-color: white;
+  color: black;
+}
+
+.dark button {
+  background-color: black;
+  color: white;
 }
 </style>
