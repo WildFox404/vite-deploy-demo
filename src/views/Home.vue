@@ -18,6 +18,5 @@ defineProps<{
 .container{
   height: 100vh;
   width: 100%;
-  background-color: #07090a;
 }
 </style>

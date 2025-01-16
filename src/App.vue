@@ -1,30 +1,68 @@
-
 <template>
+  <div class="cursor" ref="cursorEl">
+    <img src="@assets/cursor.svg" alt="">
+  </div>
   <div :class="themeClass" class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
-          123
+        <div class="nav-bar-content-main">
+          <div class="logo-container">
+            <img class="logo" src="@assets/vue.svg" alt="">
+            <div class="text">LazyDog</div>
+          </div>
+          <div class="nav-bar-content-links">
+            <router-link to="/" class="nav-bar-content-link">Home</router-link>
+            <router-link to="/about" class="nav-bar-content-link">Photo</router-link>
+            <router-link to="/welcome" class="nav-bar-content-link">Code</router-link>
+            <router-link to="/404" class="nav-bar-content-link">Video</router-link>
+          </div>
+          <toggle-button></toggle-button>
+        </div>
       </div>
     </div>
     <router-view></router-view>
-    <h1 style="color: #000;">Home Page</h1>
-    <p class="text" @click="toggleTheme">This is a paragraph312312312312312312312312312.</p>
-    <button @click="toggleTheme">Toggle Theme</button>
   </div>
 </template>
 
 <script setup>
-import { computed, getCurrentInstance } from 'vue'
-
+import toggleButton from './component/common/toggleButton/toggleButton.vue';
+import { computed, getCurrentInstance, ref, onMounted, onBeforeUnmount } from 'vue'
 const { proxy } = getCurrentInstance()
-
+let rad = 0
 const themeClass = computed(() => {
   return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
 })
 
-const toggleTheme = () => {
-  proxy.$toggleTheme()
+const cursorEl = ref(null)
+
+function handleMouseMove(e) {
+  if (cursorEl.value) {
+    if(Math.abs(e.movementX) + Math.abs(e.movementY) > 3){
+      rad = Math.atan2(e.movementX, -e.movementY);
+    }
+    
+    cursorEl.value.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(${rad}rad)`
+  }
 }
+
+function handleMouseOver(e) {
+  const cursorStyle = window.getComputedStyle(e.target).cursor
+  if (cursorStyle === 'pointer') {
+    cursorEl.value.style.display = 'none'
+  } else {
+    cursorEl.value.style.display = 'block'
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('mousemove', handleMouseMove)
+  window.addEventListener('mouseover', handleMouseOver)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('mousemove', handleMouseMove)
+  window.removeEventListener('mouseover', handleMouseOver)
+})
 </script>
 
 <style scoped lang="scss">
@@ -49,8 +87,6 @@ const toggleTheme = () => {
   justify-content: center;
   align-items: center;
   .nav-bar-content{
-    line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
     tab-size: 4;
     color-scheme: dark;
     color: #fff;
@@ -70,6 +106,59 @@ const toggleTheme = () => {
     overflow: visible;
     flex: 1;
     max-width: 1204px;
+
+    .nav-bar-content-main{
+      display: flex;
+      justify-content: space-between;
+      height: 100%;
+      padding: 16px 32px;
+      overflow: visible;
+      align-items: center;
+
+      .logo-container{
+        display: flex;
+        align-items: center;
+        transition: transform .2s ease;
+        .logo{
+          width: 24px;
+          height: 24px;
+        }
+        .text{
+          font-size: 16px;
+          font-weight: 700;
+          margin-left: 8px;
+        }
+      }
+
+      .logo-container:hover{
+        transform: scale(1.05);
+      }
+
+      .nav-bar-content-links{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        padding: 0;
+
+        .nav-bar-content-link{
+          text-decoration: none;
+          padding: 12px 8px;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: normal;
+          color: #9c9c9d;
+          letter-spacing: .2px;
+          white-space: nowrap;
+          transition: all .2s ease-in-out;
+        }
+
+        .nav-bar-content-link:hover{
+          color: #fff;
+        }
+      }
+    }
   }
 }
 
@@ -89,5 +178,14 @@ const toggleTheme = () => {
 .dark button {
   background-color: #07090a;
   color: white;
+}
+
+.cursor{
+  z-index: 99999;
+  width: 18px;
+  height: 18px;
+  position: fixed;
+  margin-left: -9px;
+  pointer-events: none;
 }
 </style>
