@@ -15,5 +15,9 @@ defineProps<{
 </script>
 
 <style scoped lang="scss">
-
+.container{
+  height: 100vh;
+  width: 100%;
+  background-color: #07090a;
+}
 </style>
