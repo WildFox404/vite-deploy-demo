@@ -2,6 +2,9 @@
   <div class="cursor" ref="cursorEl">
     <img src="@assets/cursor.svg" alt="">
   </div>
+  <div class="cat-display">
+    <cat-display></cat-display>
+  </div>
   <div :class="themeClass" class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
@@ -29,6 +32,7 @@
 </template>
 
 <script setup>
+import catDisplay from '@component/display/catDisplay/catDisplay.vue';
 import contactMe from '@component/common/contactMe/contactMe.vue';
 import toggleButton from '@component/common/toggleButton/toggleButton.vue';
 import { computed, getCurrentInstance, ref, onMounted, onBeforeUnmount } from 'vue'
@@ -83,6 +87,14 @@ onBeforeUnmount(() => {
   height: 90px;
 }
 
+.cat-display{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+}
 .nav-bar{
   z-index: 9999;
   position: fixed;

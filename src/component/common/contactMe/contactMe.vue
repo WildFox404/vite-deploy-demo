@@ -23,7 +23,7 @@
         ></path>
       </svg>
     </a>
-    <div class="tooltip">LinkedIn</div>
+    <!-- <div class="tooltip">LinkedIn</div> -->
   </li>
   <li class="icon-content">
     <a class="a-link" href="https://www.github.com/" aria-label="GitHub" data-social="github">
@@ -43,7 +43,7 @@
         ></path>
       </svg>
     </a>
-    <div class="tooltip">GitHub</div>
+    <!-- <div class="tooltip">GitHub</div> -->
   </li>
   <li class="icon-content">
     <a
@@ -68,7 +68,7 @@
         ></path>
       </svg>
     </a>
-    <div class="tooltip">Instagram</div>
+    <!-- <div class="tooltip">Instagram</div> -->
   </li>
   <li class="icon-content">
     <a class="a-link" href="https://youtube.com/" aria-label="Youtube" data-social="youtube">
@@ -88,7 +88,7 @@
         ></path>
       </svg>
     </a>
-    <div class="tooltip">Youtube</div>
+    <!-- <div class="tooltip">Youtube</div> -->
   </li>
 </ul>
 </template>
