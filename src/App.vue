@@ -16,16 +16,21 @@
             <router-link to="/welcome" class="nav-bar-content-link">Code</router-link>
             <router-link to="/404" class="nav-bar-content-link">Video</router-link>
           </div>
-          <toggle-button></toggle-button>
+          <div class="nav-bar-content-links">
+            <contact-me></contact-me>
+            <toggle-button></toggle-button>
+          </div>
         </div>
       </div>
     </div>
+    <div class="empty-view"></div>
     <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-import toggleButton from './component/common/toggleButton/toggleButton.vue';
+import contactMe from '@component/common/contactMe/contactMe.vue';
+import toggleButton from '@component/common/toggleButton/toggleButton.vue';
 import { computed, getCurrentInstance, ref, onMounted, onBeforeUnmount } from 'vue'
 const { proxy } = getCurrentInstance()
 let rad = 0
@@ -73,6 +78,11 @@ onBeforeUnmount(() => {
   box-sizing: border-box;
   flex-direction: column;
 }
+
+.empty-view{
+  height: 90px;
+}
+
 .nav-bar{
   z-index: 9999;
   position: fixed;
@@ -157,6 +167,11 @@ onBeforeUnmount(() => {
         .nav-bar-content-link:hover{
           color: #fff;
         }
+      }
+
+      .nav-bar-content-links{
+        display: flex;
+        align-items: center;
       }
     }
   }
