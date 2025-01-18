@@ -17,12 +17,6 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
-      - name: install pnpm
-        run: npm install -g pnpm
-
-      - name: Pnpm install
-        run: pnpm add pixi-live2d-display pixi.js@6.x
-
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
 
