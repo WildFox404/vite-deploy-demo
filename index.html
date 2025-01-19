@@ -10,12 +10,14 @@
   <body>
     <div id="app"></div>
     <script src="https://unpkg.com/oh-my-live2d@latest"></script>
-    <script>
+    <script type="module">
+      import.meta.env.BASE_URL = '/vite-deploy-demo/';
+      // import.meta.env.BASE_URL = '/';
       OML2D.loadOml2d({
         models: [
           {
-            path: '/tororo.model3.json',
-            position: [0, 60],
+            path: `${import.meta.env.BASE_URL}tororo.model3.json`,
+            position: [40, 200],
             scale: 0.08,
             stageStyle: {
               height: 450
@@ -23,6 +25,7 @@
           }
         ]
       });
+      
     </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
