@@ -2,9 +2,9 @@
   <div class="cursor" ref="cursorEl">
     <img src="@assets/cursor.svg" alt="">
   </div>
-  <!-- <div class="cat-display">
+  <div class="cat-display">
     <cat-display></cat-display>
-  </div> -->
+  </div>
   <div :class="themeClass" class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
@@ -30,6 +30,7 @@
     <router-view></router-view>
     <img src="/vite.svg">
   </div>
+
 </template>
 
 <script setup>
@@ -77,6 +78,7 @@ onBeforeUnmount(() => {
 
 <style scoped lang="scss">
 .container{
+  z-index: 20;
   position: relative;
   align-items: center;
   display: flex;
@@ -90,11 +92,9 @@ onBeforeUnmount(() => {
 
 .cat-display{
   position: fixed;
-  bottom: 0;
-  left: 0;
   width: auto;
   height: auto;
-  z-index: 9999;
+  z-index: 10;
 }
 .nav-bar{
   z-index: 9999;
