@@ -29,7 +29,8 @@ onMounted(
       resizeTo: window,
       backgroundAlpha: 0,
     });
-    model = await Live2DModel.from("/tororo/tororo.model3.json");
+    model = await Live2DModel.from("/vite-deploy-demo/tororo/tororo.model3.json");
+    // model = await Live2DModel.from("/tororo/tororo.model3.json");
 
     app.stage.addChild(model);
     model.scale.set(0.1);

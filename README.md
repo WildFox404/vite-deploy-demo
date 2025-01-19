@@ -13,3 +13,6 @@ public
 vite
 仓库base为/<仓库名>/
 开发环境base为/
+
+cat里的内容
+路径也需要调整
