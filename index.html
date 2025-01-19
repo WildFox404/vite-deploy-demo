@@ -9,7 +9,21 @@
   </head>
   <body>
     <div id="app"></div>
-    <script src="http://localhost:5173/public/live2dcubismcore.min.js"></script>
+    <script src="https://unpkg.com/oh-my-live2d@latest"></script>
+    <script>
+      OML2D.loadOml2d({
+        models: [
+          {
+            path: '/tororo.model3.json',
+            position: [0, 60],
+            scale: 0.08,
+            stageStyle: {
+              height: 450
+            }
+          }
+        ]
+      });
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

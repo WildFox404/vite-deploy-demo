@@ -2,9 +2,9 @@
   <div class="cursor" ref="cursorEl">
     <img src="@assets/cursor.svg" alt="">
   </div>
-  <div class="cat-display">
+  <!-- <div class="cat-display">
     <cat-display></cat-display>
-  </div>
+  </div> -->
   <div :class="themeClass" class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
@@ -28,6 +28,7 @@
     </div>
     <div class="empty-view"></div>
     <router-view></router-view>
+    <img src="/vite.svg">
   </div>
 </template>
 

@@ -8,39 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted,onBeforeUnmount } from 'vue'
-import * as PIXI from 'pixi.js'
-import { Live2DModel } from 'pixi-live2d-display/cubism4';
-
-(window as any).PIXI = PIXI;
-
-let app: PIXI.Application;
-let model: Live2DModel;
-const liveCanvas = ref(null);
-
-onMounted(
-    async()=>{
-        app = new PIXI.Application({
-            view:liveCanvas.value || undefined,
-            autoStart:true,
-            resizeTo:window,
-            backgroundAlpha:0,
-        })
-        model = await Live2DModel.from("http://localhost:5173/public/tororo.model3.json");
-
-        app.stage.addChild(model);
-        model.scale.set(0.5);
-    }
-);
-
-onBeforeUnmount(()=>{
-    model?.destroy();
-    app?.destroy();
-})
-
-function expression(type: string){
-    model.expression(type);
-}
 
 </script>
 <style scoped lang="scss">
