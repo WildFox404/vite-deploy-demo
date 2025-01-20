@@ -11,17 +11,8 @@ html, body {
 }
 
 #app {
+  display: flex; /* Add this line */
   width: 100%;
   height: 100%;
   flex-direction: column;
-}
-
-.light #app {
-  background-color: white;
-  transition: background-color 0.8s;
-}
-
-.dark #app {
-  background-color: #07090a;
-  transition: background-color 0.8s;
 }

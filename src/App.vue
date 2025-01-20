@@ -5,7 +5,10 @@
   <div class="cat-display">
     <cat-display></cat-display>
   </div>
-  <div :class="themeClass" class="container">
+  <div class="main">
+    1241231231
+  </div>
+  <div class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
         <div class="nav-bar-content-main">
@@ -27,8 +30,6 @@
       </div>
     </div>
     <div class="empty-view"></div>
-    <router-view></router-view>
-    <img src="/vite.svg">
   </div>
 
 </template>
@@ -37,12 +38,9 @@
 import catDisplay from '@component/display/catDisplay/catDisplay.vue';
 import contactMe from '@component/common/contactMe/contactMe.vue';
 import toggleButton from '@component/common/toggleButton/toggleButton.vue';
-import { computed, getCurrentInstance, ref, onMounted, onBeforeUnmount } from 'vue'
-const { proxy } = getCurrentInstance()
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
 let rad = 0
-const themeClass = computed(() => {
-  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-})
 
 const cursorEl = ref(null)
 
@@ -79,11 +77,14 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .container{
   z-index: 20;
+  width: 100%;
   position: relative;
   align-items: center;
+  position: fixed;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+  height: 100%;
 }
 
 .empty-view{
@@ -95,6 +96,12 @@ onBeforeUnmount(() => {
   width: auto;
   height: auto;
   z-index: 10;
+}
+.main{
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  z-index: 0;
 }
 .nav-bar{
   z-index: 9999;

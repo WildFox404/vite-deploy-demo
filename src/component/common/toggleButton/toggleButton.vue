@@ -1,6 +1,6 @@
 <template>
     <label class="switch">
-        <input id="input" type="checkbox" :checked="isDark" @change="toggleTheme" />
+        <input id="input" type="checkbox" :checked="themeStore.isDark" @change="toggleTheme" />
         <div class="slider round">
             <div class="sun-moon">
             <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
@@ -68,28 +68,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { computed, getCurrentInstance } from 'vue'
+import { onMounted } from 'vue'
+import { useThemeStore } from '@/stores/theme'
 
-const isDark = ref(false)
+const themeStore = useThemeStore()
 
 onMounted(() => {
-  isDark.value = document.documentElement.classList.contains('dark')
+  themeStore.isDark = document.documentElement.classList.contains('dark')
 })
 
 function toggleTheme() {
-  const currentMode = isDark.value ? 'dark' : 'light'
-  const newMode = currentMode === 'dark' ? 'light' : 'dark'
-  document.documentElement.classList.remove(currentMode)
-  document.documentElement.classList.add(newMode)
-  localStorage.setItem('mode', newMode)
-  isDark.value = !isDark.value
+  themeStore.toggleTheme()
 }
-
-defineProps<{
-  
-}>()
-
 </script>
 
 <style scoped >
