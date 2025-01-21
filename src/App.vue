@@ -6,7 +6,8 @@
     <cat-display></cat-display>
   </div>
   <div class="main">
-    1241231231
+    <home-top></home-top>
+    <div style="height: 200px;background-color: #1F1F1F;"></div>
   </div>
   <div class="container">
     <div class="nav-bar">
@@ -35,6 +36,7 @@
 </template>
 
 <script setup>
+import homeTop from '@component/display/homeTop/homeTop.vue';
 import catDisplay from '@component/display/catDisplay/catDisplay.vue';
 import contactMe from '@component/common/contactMe/contactMe.vue';
 import toggleButton from '@component/common/toggleButton/toggleButton.vue';
