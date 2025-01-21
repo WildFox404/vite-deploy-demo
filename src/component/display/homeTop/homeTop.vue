@@ -1,7 +1,8 @@
 <template>
   <div class="home-top">
     <iframe 
-      :src="'/homeTop/homeTop.html'" 
+      
+      :src="'/vite-deploy-demo/homeTop/homeTop.html'" 
       frameborder="0"
       width="100%"
       height="100%"
