@@ -16,6 +16,7 @@ defineProps<{
 /* From Uiverse.io by Yaseen549 */ 
 .card {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;

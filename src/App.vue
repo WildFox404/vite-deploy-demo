@@ -13,6 +13,20 @@
         <div class="bg-container-item mt-10"  >
           <div class="flex-1">
             <bg-light-card class="p-4">
+              <div class="w-full text-start pl-10 pb-4" style="color: #fff;">My Github Contribution Graph</div>
+              <img src="https://ghchart.rshah.org/WildFox404" class="w-full" />
+            </bg-light-card>
+          </div>
+          <weather-display></weather-display>
+        </div>
+      </fade-up>
+    </div>
+    <div class="bg-container">
+      <fade-up>
+        <div class="bg-container-item mt-10"  >
+          <div class="flex-1">
+            <bg-light-card class="p-4">
+              <div class="w-full text-start pl-10 pb-4" style="color: #fff;">My Github Contribution Graph</div>
               <img src="https://ghchart.rshah.org/WildFox404" class="w-full" />
             </bg-light-card>
           </div>
@@ -80,35 +94,14 @@ function handleMouseOver(e) {
   }
 }
 
-const getScale = () => {
-  const width = window.innerWidth
-  // 计算缩放比例
-  let scale = width / 1304;
-  if(width< 970){
-    return Math.min(Math.max(scale, 0.8), 1);
-  }
-  return Math.min(Math.max(scale, 0.7), 1);
-}
-
-const handleResize = () => {
-  const scale = getScale()
-  const container = document.querySelector('.bg-container-item')
-  if (container) {
-    container.style.transform = `scale(${scale})`
-  }
-}
-
 onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('mouseover', handleMouseOver)
-  handleResize()
-  window.addEventListener('resize', handleResize)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('mouseover', handleMouseOver)
-  window.removeEventListener('resize', handleResize)
 })
 </script>
 
