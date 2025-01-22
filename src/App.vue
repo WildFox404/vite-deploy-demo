@@ -7,7 +7,19 @@
   </div>
   <div class="main">
     <home-top></home-top>
-    <div style="height: 200px;background-color: #1F1F1F;"></div>
+    
+    <div class="bg-container">
+      <fade-up>
+        <div class="bg-container-item mt-10"  >
+          <div class="flex-1">
+            <bg-light-card class="p-4">
+              <img src="https://ghchart.rshah.org/WildFox404" class="w-full" />
+            </bg-light-card>
+          </div>
+          <weather-display></weather-display>
+        </div>
+      </fade-up>
+    </div>
   </div>
   <div class="container">
     <div class="nav-bar">
@@ -36,6 +48,9 @@
 </template>
 
 <script setup>
+import bgLightCard from '@component/common/bgLightCard/bgLightCard.vue';
+import fadeUp from '@component/animate/fadeUp/fadeUp.vue';
+import weatherDisplay from '@component/display/weatherDisplay/weatherDisplay.vue';
 import homeTop from '@component/display/homeTop/homeTop.vue';
 import catDisplay from '@component/display/catDisplay/catDisplay.vue';
 import contactMe from '@component/common/contactMe/contactMe.vue';
@@ -65,14 +80,35 @@ function handleMouseOver(e) {
   }
 }
 
+const getScale = () => {
+  const width = window.innerWidth
+  // 计算缩放比例
+  let scale = width / 1304;
+  if(width< 970){
+    return Math.min(Math.max(scale, 0.8), 1);
+  }
+  return Math.min(Math.max(scale, 0.7), 1);
+}
+
+const handleResize = () => {
+  const scale = getScale()
+  const container = document.querySelector('.bg-container-item')
+  if (container) {
+    container.style.transform = `scale(${scale})`
+  }
+}
+
 onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('mouseover', handleMouseOver)
+  handleResize()
+  window.addEventListener('resize', handleResize)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('mouseover', handleMouseOver)
+  window.removeEventListener('resize', handleResize)
 })
 </script>
 
@@ -102,8 +138,25 @@ onBeforeUnmount(() => {
 .main{
   width: 100%;
   height: 100%;
-  background: #f0f0f0;
+  background: #1f1f1f;
   z-index: 0;
+  .bg-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #1f1f1f;
+    .bg-container-item{
+      gap: 20px;
+      display: flex;
+      width: 100%;
+      height: auto;
+      max-width: 1204px;
+      padding: 0 16px;
+      transform-origin: top center;
+      transition: transform 0.3s ease;
+    }
+  }
 }
 .nav-bar{
   z-index: 9999;
