@@ -2,13 +2,12 @@
   <div class="cursor" ref="cursorEl">
     <img src="@assets/cursor.svg" alt="">
   </div>
-  <div class="cat-display">
+  <div class="cat-display" v-show="appElShow">
     <cat-display></cat-display>
   </div>
   <div class="main">
-    <home-top></home-top>
-    
-    <div class="bg-container">
+    <home-top ref="homeTopEl"></home-top>
+    <div class="bg-container" v-show="appElShow">
       <fade-up>
         <div class="bg-container-item mt-10"  >
           <div class="flex-1">
@@ -23,18 +22,15 @@
     </div>
     <div class="bg-container">
       <fade-up>
-        <div class="bg-container-item mt-10"  >
-          <div class="flex-1">
-            <bg-light-card class="p-4">
-              <div class="w-full text-start pl-10 pb-4" style="color: #fff;">My Github Contribution Graph</div>
-              <img src="https://ghchart.rshah.org/WildFox404" class="w-full" />
-            </bg-light-card>
+        <div class="bg-container-item"  >
+          <div class="w-full h-60 flex-center">
+            <ball-display></ball-display>
           </div>
-          <weather-display></weather-display>
         </div>
       </fade-up>
     </div>
   </div>
+  
   <div class="container">
     <div class="nav-bar">
       <div class="nav-bar-content">
@@ -44,10 +40,13 @@
             <div class="text">LazyDog</div>
           </div>
           <div class="nav-bar-content-links">
-            <router-link to="/" class="nav-bar-content-link">Home</router-link>
-            <router-link to="/about" class="nav-bar-content-link">Photo</router-link>
-            <router-link to="/welcome" class="nav-bar-content-link">Code</router-link>
-            <router-link to="/404" class="nav-bar-content-link">Video</router-link>
+            <div @click="goToHome" class="nav-bar-content-link">Home</div>
+            <div class="nav-bar-content-link">Music</div>
+            <div class="nav-bar-content-link">Photo</div>
+            <div class="nav-bar-content-link">Code</div>
+            <div class="nav-bar-content-link">Video</div>
+            <div class="nav-bar-content-link">Game</div>
+            <div class="nav-bar-content-link">Movie</div>
           </div>
           <div class="nav-bar-content-links">
             <contact-me></contact-me>
@@ -62,6 +61,7 @@
 </template>
 
 <script setup>
+import ballDisplay from '@component/display/ballDisplay/ballDisplay.vue';
 import bgLightCard from '@component/common/bgLightCard/bgLightCard.vue';
 import fadeUp from '@component/animate/fadeUp/fadeUp.vue';
 import weatherDisplay from '@component/display/weatherDisplay/weatherDisplay.vue';
@@ -74,6 +74,9 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 let rad = 0
 
 const cursorEl = ref(null)
+const appElShow = ref(true)
+
+const homeTopEl = ref(null)
 
 function handleMouseMove(e) {
   if (cursorEl.value) {
@@ -97,12 +100,32 @@ function handleMouseOver(e) {
 onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('mouseover', handleMouseOver)
+  window.addEventListener('resize', () => {
+    let clientWidth = document.documentElement.clientWidth
+    if(clientWidth < 970){
+      cursorEl.value.style.display = 'none'
+      appElShow.value = false
+    }else{
+      cursorEl.value.style.display = 'block'
+      appElShow.value = true
+    }
+  })
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('mouseover', handleMouseOver)
 })
+
+function goToHome() {
+  if (homeTopEl.value) {
+    // 访问组件的 DOM 元素
+    homeTopEl.value.$el.scrollIntoView({
+      behavior: 'smooth',  // 平滑滚动
+      block: 'start'      // 滚动到顶部对齐
+    })
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -270,5 +293,11 @@ onBeforeUnmount(() => {
   position: fixed;
   margin-left: -9px;
   pointer-events: none;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

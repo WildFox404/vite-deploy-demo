@@ -12,7 +12,7 @@ const pinia = createPinia()
 AOS.init({
   duration: 1000,
   easing: 'ease-in-out',
-  once: true
+  once: false
 })
 
 // 读取 localStorage 中的 mode 并设置初始主题

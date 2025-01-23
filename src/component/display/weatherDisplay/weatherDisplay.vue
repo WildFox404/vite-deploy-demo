@@ -124,8 +124,8 @@
 }
 
 .cardContainer::before {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   content: "";
   position: absolute;
   background-color: rgb(144, 161, 255);
