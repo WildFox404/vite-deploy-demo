@@ -29,6 +29,31 @@
         </div>
       </fade-up>
     </div>
+    <div class="bg-container">
+      <fade-up>
+        <div class="bg-container-item"  >
+          <div class="w-full flex-center">
+            <home-display></home-display>
+          </div>
+        </div>
+      </fade-up>
+    </div>
+    <div class="bg-gradient">
+      <div class="h-60"></div>
+    </div>
+    <div style="position: relative;">
+      <movie-top></movie-top>
+      <div class = "movie-top-container">
+        <h1>Hi, my name is</h1>
+        <h1>Jasmine.</h1>
+      </div>
+    </div>
+    <div class="bg-[#104166]">
+      <div class="h-20"></div>
+    </div>
+    <div class="bg-container">
+      <div class="h-20"></div>
+    </div>
   </div>
   
   <div class="container">
@@ -61,6 +86,9 @@
 </template>
 
 <script setup>
+import movieTop from '@component/display/movieTop/movieTop.vue';
+import homeDisplay from '@component/display/homeDisplay/homeDisplay.vue';
+import movie from '@component/display/homeDisplay/movie/movie.vue';
 import ballDisplay from '@component/display/ballDisplay/ballDisplay.vue';
 import bgLightCard from '@component/common/bgLightCard/bgLightCard.vue';
 import fadeUp from '@component/animate/fadeUp/fadeUp.vue';
@@ -156,6 +184,9 @@ function goToHome() {
   height: 100%;
   background: #1f1f1f;
   z-index: 0;
+  .bg-gradient{
+    background: linear-gradient(to bottom, #1f1f1f, #0092ff);
+  }
   .bg-container{
     display: flex;
     flex-direction: column;
@@ -173,6 +204,13 @@ function goToHome() {
       transition: transform 0.3s ease;
     }
   }
+}
+.movie-top-container{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 .nav-bar{
   z-index: 9999;
