@@ -14,7 +14,7 @@ export default defineConfig({
     alias:{
       '@':'/src',
       '@assets':'/src/assets',
-      '@component':'/src/component',
+      '@mycomponent':'/src/component',
     }
   },
   base : '/vite-deploy-demo/'
