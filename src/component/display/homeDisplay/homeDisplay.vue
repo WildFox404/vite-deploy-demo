@@ -40,14 +40,14 @@
 </template>
 
 <script setup lang="ts">
-import glassCard from '@component/common/glassCard/glassCard.vue';
-import photo from '@component/display/homeDisplay/photo/photo.vue';
-import codeComponent from '@component/display/homeDisplay/code/code.vue';
-import videoComponent from '@component/display/homeDisplay/video/video.vue';
-import game from '@component/display/homeDisplay/game/game.vue';
-import resizableContainer from '@/component/common/resizableContainer/resizableContainer.vue';
-import movie from '@component/display/homeDisplay/movie/movie.vue';
-import music from '@component/display/homeDisplay/music/music.vue';
+import glassCard from '@mycomponent/common/glassCard/glassCard.vue';
+import photo from '@mycomponent/display/homeDisplay/photo/photo.vue';
+import codeComponent from '@mycomponent/display/homeDisplay/code/code.vue';
+import videoComponent from '@mycomponent/display/homeDisplay/video/video.vue';
+import game from '@mycomponent/display/homeDisplay/game/game.vue';
+import resizableContainer from '@mycomponent/common/resizableContainer/resizableContainer.vue';
+import movie from '@mycomponent/display/homeDisplay/movie/movie.vue';
+import music from '@mycomponent/display/homeDisplay/music/music.vue';
 import { onMounted,onBeforeUnmount,ref } from 'vue';
 
 const wrapper = ref<HTMLElement | null>(null);

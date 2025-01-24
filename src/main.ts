@@ -4,6 +4,8 @@ import { createPinia } from 'pinia'
 import './index.css'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { MotionPlugin } from '@vueuse/motion'
+
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -19,5 +21,6 @@ AOS.init({
 const mode = localStorage.getItem('mode') || 'light'
 document.documentElement.classList.add(mode)
 
+app.use(MotionPlugin)
 app.use(pinia)
 app.mount('#app')

@@ -41,12 +41,67 @@
     <div class="bg-gradient">
       <div class="h-60"></div>
     </div>
-    <div style="position: relative;">
-      <movie-top></movie-top>
-      <div class = "movie-top-container">
-        <h1>Hi, my name is</h1>
-        <h1>Jasmine.</h1>
+    <div class="w-full relative">
+      <div class="w-full relative z-0">
+        <movie-top></movie-top>
       </div>
+      <div class="w-full flex-center absolute top-0 z-10">
+        <fade-up>
+          <VisibilityObserver>
+            <HyperText 
+              text="MY favorite movies" 
+              color="#fff" 
+              duration="1500" 
+              class="text-5xl"
+              fontSize="3rem"
+            ></HyperText>
+          </VisibilityObserver>
+        </fade-up>
+      </div>
+    </div>
+    <div
+    class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl"
+    >
+      <!-- First Marquee -->
+      <Marquee
+        pause-on-hover
+        class="[--duration:20s]"
+      >
+        <ReviewCard
+          v-for="review in firstRow"
+          :key="review.username"
+          :img="review.img"
+          :name="review.name"
+          :username="review.username"
+          :body="review.body"
+        />
+      </Marquee>
+
+      <!-- Second Marquee (reverse) -->
+      <Marquee
+        reverse
+        pause-on-hover
+        class="[--duration:20s]"
+      >
+        <ReviewCard
+          v-for="review in secondRow"
+          :key="review.username"
+          :img="review.img"
+          :name="review.name"
+          :username="review.username"
+          :body="review.body"
+        />
+      </Marquee>
+
+      <!-- Left Gradient -->
+      <div
+        class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"
+      ></div>
+
+      <!-- Right Gradient -->
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"
+      ></div>
     </div>
     <div class="bg-[#104166]">
       <div class="h-20"></div>
@@ -75,7 +130,7 @@
           </div>
           <div class="nav-bar-content-links">
             <contact-me></contact-me>
-            <toggle-button></toggle-button>
+            <!-- <toggle-button></toggle-button> -->
           </div>
         </div>
       </div>
@@ -86,17 +141,23 @@
 </template>
 
 <script setup>
-import movieTop from '@component/display/movieTop/movieTop.vue';
-import homeDisplay from '@component/display/homeDisplay/homeDisplay.vue';
-import movie from '@component/display/homeDisplay/movie/movie.vue';
-import ballDisplay from '@component/display/ballDisplay/ballDisplay.vue';
-import bgLightCard from '@component/common/bgLightCard/bgLightCard.vue';
-import fadeUp from '@component/animate/fadeUp/fadeUp.vue';
-import weatherDisplay from '@component/display/weatherDisplay/weatherDisplay.vue';
-import homeTop from '@component/display/homeTop/homeTop.vue';
-import catDisplay from '@component/display/catDisplay/catDisplay.vue';
-import contactMe from '@component/common/contactMe/contactMe.vue';
-import toggleButton from '@component/common/toggleButton/toggleButton.vue';
+import Marquee from "@mycomponent/ui/marquee/Marquee.vue";
+import ReviewCard from "@mycomponent/ui/marquee/ReviewCard.vue";
+import VisibilityObserver from "@mycomponent/animate/visibilityObserver/VisibilityObserver.vue";
+import HyperText from "@mycomponent/ui/hyper-text/HyperText.vue";
+import CardSpotlight from "@mycomponent/ui/card-spotlight/CardSpotlight.vue";
+import { CardContainer, CardBody, CardItem } from "@mycomponent/ui/card-3d";
+import movieTop from '@mycomponent/display/movieTop/movieTop.vue';
+import homeDisplay from '@mycomponent/display/homeDisplay/homeDisplay.vue';
+import movie from '@mycomponent/display/homeDisplay/movie/movie.vue';
+import ballDisplay from '@mycomponent/display/ballDisplay/ballDisplay.vue';
+import bgLightCard from '@mycomponent/common/bgLightCard/bgLightCard.vue';
+import fadeUp from '@mycomponent/animate/fadeUp/fadeUp.vue';
+import weatherDisplay from '@mycomponent/display/weatherDisplay/weatherDisplay.vue';
+import homeTop from '@mycomponent/display/homeTop/homeTop.vue';
+import catDisplay from '@mycomponent/display/catDisplay/catDisplay.vue';
+import contactMe from '@mycomponent/common/contactMe/contactMe.vue';
+import toggleButton from '@mycomponent/common/toggleButton/toggleButton.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 let rad = 0
@@ -105,6 +166,49 @@ const cursorEl = ref(null)
 const appElShow = ref(true)
 
 const homeTopEl = ref(null)
+
+const reviews = [
+  {
+    name: "Jack",
+    username: "@jack",
+    body: "I've never seen anything like this before. It's amazing. I love it.",
+    img: "https://avatar.vercel.sh/jack",
+  },
+  {
+    name: "Jill",
+    username: "@jill",
+    body: "I don't know what to say. I'm speechless. This is amazing.",
+    img: "https://avatar.vercel.sh/jill",
+  },
+  {
+    name: "John",
+    username: "@john",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/john",
+  },
+  {
+    name: "Jane",
+    username: "@jane",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jane",
+  },
+  {
+    name: "Jenny",
+    username: "@jenny",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/jenny",
+  },
+  {
+    name: "James",
+    username: "@james",
+    body: "I'm at a loss for words. This is amazing. I love it.",
+    img: "https://avatar.vercel.sh/james",
+  },
+];
+
+// Split reviews into two rows
+const firstRow = ref(reviews.slice(0, reviews.length / 2));
+const secondRow = ref(reviews.slice(reviews.length / 2));
 
 function handleMouseMove(e) {
   if (cursorEl.value) {
@@ -204,13 +308,6 @@ function goToHome() {
       transition: transform 0.3s ease;
     }
   }
-}
-.movie-top-container{
-  position: absolute;
-  width: 100%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
 }
 .nav-bar{
   z-index: 9999;
