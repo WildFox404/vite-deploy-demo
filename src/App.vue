@@ -143,7 +143,7 @@
 <script setup>
 import Marquee from "@mycomponent/ui/marquee/Marquee.vue";
 import ReviewCard from "@mycomponent/ui/marquee/ReviewCard.vue";
-import VisibilityObserver from "@mycomponent/animate/visibilityObserver/VisibilityObserver.vue";
+import VisibilityObserver from "@mycomponent/animate/visibilityObserver/visibilityObserver.vue";
 import HyperText from "@mycomponent/ui/hyper-text/HyperText.vue";
 import CardSpotlight from "@mycomponent/ui/card-spotlight/CardSpotlight.vue";
 import { CardContainer, CardBody, CardItem } from "@mycomponent/ui/card-3d";
