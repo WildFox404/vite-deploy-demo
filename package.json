@@ -15,13 +15,15 @@
     "@vueuse/motion": "^2.2.6",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.20",
+    "cobe": "^0.6.3",
     "pinia": "^2.3.0",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "^6.5.10",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "vue": "^3.5.13",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vue-use-spring": "^0.3.3"
   },
   "devDependencies": {
     "@inspira-ui/plugins": "^0.0.1",

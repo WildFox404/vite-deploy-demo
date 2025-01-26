@@ -2,9 +2,9 @@
   <div class="cursor" ref="cursorEl">
     <img src="@assets/cursor.svg" alt="">
   </div>
-  <div class="cat-display" v-show="appElShow">
+  <!-- <div class="cat-display" v-show="appElShow">
     <cat-display></cat-display>
-  </div>
+  </div> -->
   <div class="main">
     <home-top ref="homeTopEl"></home-top>
     <div class="bg-container" v-show="appElShow">
@@ -59,8 +59,11 @@
         </fade-up>
       </div>
     </div>
+    <div class="bg-gradient-reverse">
+      <div class="h-60"></div>
+    </div>
     <div
-    class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl"
+      class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-[#1f1f1f] md:shadow-xl"
     >
       <!-- First Marquee -->
       <Marquee
@@ -93,54 +96,80 @@
         />
       </Marquee>
 
-      <!-- Left Gradient -->
-      <div
-        class="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"
-      ></div>
 
-      <!-- Right Gradient -->
+    </div>
+    <div
+      class="relative bg-[#1f1f1f] flex size-full flex-col items-center justify-center overflow-hidden px-40 pb-40 pt-8 md:pb-60 md:shadow-xl"
+    >
+      <span
+        class="mt-40 z-10 pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black bg-clip-text text-center text-8xl font-semibold leading-none text-transparent max-lg:-mt-12 dark:to-slate-900/10"
+      >
+        Read
+      </span>
+      <Globe class="" />
       <div
-        class="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"
+        class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"
       ></div>
     </div>
+    <div class="grid place-content-center p-10">
+      <Book>
+        <BookHeader>
+          <Icon
+            name="heroicons:book-open-solid"
+            size="24"
+          />
+        </BookHeader>
+        <BookTitle>
+          <h1>The Book</h1>
+        </BookTitle>
+        <BookDescription>
+          <p>Hover me to animate!</p>
+        </BookDescription>
+      </Book>
+    </div>
+
     <div class="bg-[#104166]">
       <div class="h-20"></div>
+      
     </div>
     <div class="bg-container">
       <div class="h-20"></div>
     </div>
   </div>
   
-  <div class="container">
-    <div class="nav-bar">
-      <div class="nav-bar-content">
-        <div class="nav-bar-content-main">
-          <div class="logo-container">
-            <img class="logo" src="@assets/vue.svg" alt="">
-            <div class="text">LazyDog</div>
-          </div>
-          <div class="nav-bar-content-links">
-            <div @click="goToHome" class="nav-bar-content-link">Home</div>
-            <div class="nav-bar-content-link">Music</div>
-            <div class="nav-bar-content-link">Photo</div>
-            <div class="nav-bar-content-link">Code</div>
-            <div class="nav-bar-content-link">Video</div>
-            <div class="nav-bar-content-link">Game</div>
-            <div class="nav-bar-content-link">Movie</div>
-          </div>
-          <div class="nav-bar-content-links">
-            <contact-me></contact-me>
-            <!-- <toggle-button></toggle-button> -->
-          </div>
+  <div class="nav-bar">
+    <div class="nav-bar-content">
+      <div class="nav-bar-content-main">
+        <div class="logo-container">
+          <img class="logo" src="@assets/vue.svg" alt="">
+          <div class="text">LazyDog</div>
+        </div>
+        <div class="nav-bar-content-links">
+          <div @click="goToHome" class="nav-bar-content-link">Home</div>
+          <div class="nav-bar-content-link">Music</div>
+          <div class="nav-bar-content-link">Photo</div>
+          <div class="nav-bar-content-link">Code</div>
+          <div class="nav-bar-content-link">Video</div>
+          <div class="nav-bar-content-link">Game</div>
+          <div class="nav-bar-content-link">Movie</div>
+          <div class="nav-bar-content-link">Read</div>
+        </div>
+        <div class="nav-bar-content-links">
+          <contact-me></contact-me>
+          <!-- <toggle-button></toggle-button> -->
         </div>
       </div>
     </div>
-    <div class="empty-view"></div>
   </div>
 
 </template>
 
 <script setup>
+import BentoGrid from "@mycomponent/ui/bento-grid/BentoGrid.vue";
+import BentoGridItem from "@mycomponent/ui/bento-grid/BentoGridItem.vue";
+import Book from "@mycomponent/ui/book/Book.vue";
+import Globe from "@mycomponent/ui/globe/Globe.vue";
+import ContainerScroll from "@mycomponent/ui/container-scroll/ContainerScroll.vue";
 import Marquee from "@mycomponent/ui/marquee/Marquee.vue";
 import ReviewCard from "@mycomponent/ui/marquee/ReviewCard.vue";
 import VisibilityObserver from "@mycomponent/animate/visibilityObserver/visibilityObserver.vue";
@@ -166,6 +195,37 @@ const cursorEl = ref(null)
 const appElShow = ref(true)
 
 const homeTopEl = ref(null)
+
+const items = [
+  {
+    title: "The Dawn of Innovation",
+    description: "Explore the birth of groundbreaking ideas and inventions.",
+  },
+  {
+    title: "The Digital Revolution",
+    description: "Dive into the transformative power of technology.",
+  },
+  {
+    title: "The Art of Design",
+    description: "Discover the beauty of thoughtful and experience design.",
+  },
+  {
+    title: "The Power of Communication",
+    description: "Understand the impact of effective communication in our lives.",
+  },
+  {
+    title: "The Pursuit of Knowledge",
+    description: "Join the quest for understanding and enlightenment.",
+  },
+  {
+    title: "The Joy of Creation",
+    description: "Experience the thrill of bringing ideas to life.",
+  },
+  {
+    title: "The Spirit of Adventure",
+    description: "Embark on exciting journeys and thrilling discoveries.",
+  },
+];
 
 const reviews = [
   {
@@ -290,6 +350,11 @@ function goToHome() {
   z-index: 0;
   .bg-gradient{
     background: linear-gradient(to bottom, #1f1f1f, #0092ff);
+  }
+  .bg-gradient-reverse{
+    background: linear-gradient(to bottom, #104166, #1f1f1f),
+              linear-gradient(to bottom right, transparent 50%, #1f1f1f 50%),
+              linear-gradient(to bottom left, transparent 50%, #1f1f1f 50%);
   }
   .bg-container{
     display: flex;
