@@ -342,14 +342,14 @@ function fireConfetti() {
 }
 
 const expandableGalleryImages = [
-  "/model/1.webp",
-  "/model/7.jpg",
-  "/model/4.webp",
-  "/model/5.webp",
-  "/model/3.webp",
-  "/model/6.webp",
-  "/model/9.jpg",
-  "/model/2.webp",
+  "/vite-deploy-demo/model/1.webp",
+  "/vite-deploy-demo/model/7.jpg",
+  "/vite-deploy-demo/model/4.webp",
+  "/vite-deploy-demo/model/5.webp",
+  "/vite-deploy-demo/model/3.webp",
+  "/vite-deploy-demo/model/6.webp",
+  "/vite-deploy-demo/model/9.jpg",
+  "/vite-deploy-demo/model/2.webp",
 ];
 
 const items = [
@@ -432,7 +432,7 @@ const reviews = [
     img: "https://cdn.04pic.com/image/6326f3ac9847b.jpg"
   },
   {
-    img: "/movie/jojo.png"
+    img: "/vite-deploy-demo/movie/jojo.png"
   }
 ];
 
