@@ -29,7 +29,7 @@
         </div>
       </fade-up>
     </div> -->
-    <div class="bg-container pt-20">
+    <div class="bg-container pt-20" v-if="appElShow">
       <fade-up>
         <div class="bg-container-item"  >
           <div class="w-full flex-center">
@@ -39,7 +39,7 @@
       </fade-up>
     </div>
     <!-- 设计展示 -->
-    <div class="w-full relative h-[1500px]">
+    <div class="w-full relative h-[1500px]" v-if="appElShow">
       <ParticleWhirlpoolBg
         :key="designKey"
         ref="designTopEl"
@@ -127,6 +127,7 @@
     </div>
     <!-- 游戏展示 -->
     <div
+      v-if="appElShow"
       class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-[#1f1f1f] md:shadow-xl"
     >
       <span
@@ -142,7 +143,10 @@
         @mouseenter="fireConfetti"
       />
     </div>
-    <div class="w-full bg-[#1f1f1f]">
+    <div 
+      v-if="appElShow"
+      class="w-full bg-[#1f1f1f]"
+    >
       <BentoGrid class="mx-auto px-20 bg-[#1f1f1f]">
         <BentoGridItem
           v-for="(item, index) in items"
@@ -177,10 +181,10 @@
       />
     </div> -->
     <!-- 电影展示 -->
-    <div class="bg-gradient relative">
+    <div class="bg-gradient relative" v-if="appElShow">
       <div class="h-60"></div>
     </div>
-    <div class="w-full relative">
+    <div class="w-full relative" v-if="appElShow">
       <div class="w-full relative z-0" >
         <movie-top></movie-top>
       </div>
@@ -198,10 +202,11 @@
         </fade-up>
       </div>
     </div>
-    <div class="bg-gradient-reverse">
+    <div class="bg-gradient-reverse" v-if="appElShow">
       <div class="h-60"></div>
     </div>
     <div
+      v-if="appElShow"
       class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-[#1f1f1f] md:shadow-xl"
     >
       <!-- First Marquee -->
@@ -239,6 +244,7 @@
     </div>
     <!-- 阅读展示 -->
     <div
+      v-if="appElShow"
       class="relative bg-[#1f1f1f] flex size-full flex-col items-center justify-center overflow-hidden px-40 pb-40 pt-8 md:pb-60 md:shadow-xl"
     >
       <span
@@ -251,7 +257,7 @@
         class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"
       ></div>
     </div>
-    <div class="bg-container">
+    <div v-if="appElShow" class="bg-container">
       <div class="common-container">
         <bookDisplay>
         </bookDisplay>
@@ -352,6 +358,17 @@ const expandableGalleryImages = [
   "/vite-deploy-demo/model/2.webp",
 ];
 
+// const expandableGalleryImages = [
+//   "/model/1.webp",
+//   "/model/7.jpg",
+//   "/model/4.webp",
+//   "/model/5.webp",
+//   "/model/3.webp",
+//   "/model/6.webp",
+//   "/model/9.jpg",
+//   "/model/2.webp",
+// ];
+
 const items = [
   {
     src: "https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/548430/header_alt_assets_25_schinese.jpg?t=1737629460",
@@ -433,7 +450,10 @@ const reviews = [
   },
   {
     img: "/vite-deploy-demo/movie/jojo.png"
-  }
+  },
+  // {
+  //   img: "/movie/jojo.png"
+  // }
 ];
 
 // Split reviews into two rows
