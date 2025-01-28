@@ -1,24 +1,22 @@
 <template>
-  <figure
-    class="bg-[#ffffff] relative w-64 cursor-pointer overflow-hidden rounded-xl border border-gray-200 bg-white p-4 hover:bg-gray-200"
-  >
-    <div class="flex flex-row items-center gap-2">
+  <!-- <figure
+    class="bg-[#ffffff] relative w-64 cursor-pointer rounded-xl border border-gray-200 bg-white hover:bg-gray-200"
+  > -->
+    <div class="flex w-40 flex-row items-center justify-center gap-2 overflow-hidden">
       <img
         :src="img"
-        class="rounded-full"
-        width="32"
-        height="32"
+        class="w-30 h-60 object-cover rounded-xl p-2"
         alt=""
       />
-      <div class="flex flex-col">
+      <!-- <div class="flex flex-col">
         <span class="text-sm font-medium dark:text-white">
           {{ name }}
         </span>
         <p class="text-xs font-medium dark:text-white/40">{{ username }}</p>
-      </div>
+      </div> -->
     </div>
-    <blockquote class="mt-2 text-sm">{{ body }}</blockquote>
-  </figure>
+    <!-- <blockquote class="mt-2 text-sm">{{ body }}</blockquote> -->
+  <!-- </figure> -->
 </template>
 
 <script lang="ts" setup>

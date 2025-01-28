@@ -20,7 +20,7 @@
       <div
         :class="`
           absolute inset-y-0 overflow-hidden size-full left-0
-          text-white flex flex-col justify-end p-6
+          text-white flex flex-col justify-end
           bg-gradient-to-tr
           ${computedGradient.from}
           ${computedGradient.to}
@@ -40,9 +40,7 @@
             opacity: '0.2',
           }"
         ></div>
-        <div class="pl-1">
-          <slot ></slot>
-        </div>
+        <slot ></slot>
       </div>
 
       <div

@@ -1,6 +1,6 @@
 <template>
 <ul class="example-2">
-  <li class="icon-content">
+  <!-- <li class="icon-content">
     <a
       class="a-link"
       href="https://linkedin.com/"
@@ -23,10 +23,9 @@
         ></path>
       </svg>
     </a>
-    <!-- <div class="tooltip">LinkedIn</div> -->
-  </li>
+  </li> -->
   <li class="icon-content">
-    <a class="a-link" href="https://www.github.com/" aria-label="GitHub" data-social="github">
+    <a class="a-link" target="_blank" href="https://github.com/WildFox404" aria-label="GitHub" data-social="github">
       <div class="filled"></div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +42,8 @@
         ></path>
       </svg>
     </a>
-    <!-- <div class="tooltip">GitHub</div> -->
   </li>
-  <li class="icon-content">
+  <!-- <li class="icon-content">
     <a
       class="a-link"
       href="https://www.instagram.com/"
@@ -68,7 +66,6 @@
         ></path>
       </svg>
     </a>
-    <!-- <div class="tooltip">Instagram</div> -->
   </li>
   <li class="icon-content">
     <a class="a-link" href="https://youtube.com/" aria-label="Youtube" data-social="youtube">
@@ -88,8 +85,7 @@
         ></path>
       </svg>
     </a>
-    <!-- <div class="tooltip">Youtube</div> -->
-  </li>
+  </li> -->
 </ul>
 </template>
 

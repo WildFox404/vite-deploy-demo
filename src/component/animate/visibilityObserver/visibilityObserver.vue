@@ -18,6 +18,10 @@ export default defineComponent({
       type: String,
       default: '0px',
     },
+    duration: {
+      type: Number,
+      default: 1500,
+    },
   },
   setup(props, { slots }) {
     const observerElement = ref<HTMLElement | null>(null);

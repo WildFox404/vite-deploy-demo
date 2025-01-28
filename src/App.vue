@@ -20,7 +20,7 @@
         </div>
       </fade-up>
     </div>
-    <div class="bg-container">
+    <!-- <div class="bg-container">
       <fade-up>
         <div class="bg-container-item"  >
           <div class="w-full h-60 flex-center">
@@ -28,8 +28,8 @@
           </div>
         </div>
       </fade-up>
-    </div>
-    <div class="bg-container">
+    </div> -->
+    <div class="bg-container pt-20">
       <fade-up>
         <div class="bg-container-item"  >
           <div class="w-full flex-center">
@@ -38,22 +38,161 @@
         </div>
       </fade-up>
     </div>
-    <div class="bg-gradient">
+    <!-- 设计展示 -->
+    <div class="w-full relative h-[1500px]">
+      <ParticleWhirlpoolBg
+        :key="designKey"
+        ref="designTopEl"
+        class=" bg-[#1f1f1f] relative z-0 h-full"
+        :particle-count="50"
+      >
+      </ParticleWhirlpoolBg>
+      <div class="absolute mt-10 w-[80%] absolute-center transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <!-- <TextHoverEffect
+          class=""
+          text="DESIGN"
+        >
+        </TextHoverEffect> -->
+        <div class="w-full flex-center flex mt-20">
+          <h1 class="text-white text-balance text-8xl font-extrabold leading-none tracking-tighter">
+            View
+            <LineShadowText
+              
+              class="italic"
+              :shadow-color="'#0092ff'"
+            >
+              Design
+            </LineShadowText>
+          </h1>
+        </div>
+        <ExpandableGallery
+          :images="expandableGalleryImages"
+          class=" mt-20"
+        />
+        <div class="mt-10 flex h-[500px] w-full gap-4 lg:h-[250px] lg:flex-row">
+          <CardSpotlight
+            class="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
+            :gradient-color="isDark ? '#363636' : '#C9C9C9'"
+          >
+            <video 
+              src="/model/video/2.mp4" 
+              class="w-full h-full cursor-pointer" 
+              onclick="this.paused ? this.play() : this.pause()"
+            ></video>
+          </CardSpotlight>
+          <CardSpotlight
+            class="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
+            :gradient-color="isDark ? '#363636' : '#C9C9C9'"
+          >
+            <video 
+              src="/model/video/3.mp4" 
+              class="w-full h-full cursor-pointer" 
+              onclick="this.paused ? this.play() : this.pause()"
+            ></video>
+          </CardSpotlight>
+        </div>
+        <div class="mt-4 flex h-[500px] w-full gap-4 lg:h-[250px] lg:flex-row">
+          <CardSpotlight
+            class="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
+            :gradient-color="isDark ? '#363636' : '#C9C9C9'"
+          >
+            <video 
+              src="/model/video/5.mp4" 
+              class="w-full h-full cursor-pointer" 
+              onclick="this.paused ? this.play() : this.pause()"
+            ></video>
+          </CardSpotlight>
+          <CardSpotlight
+            class="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
+            :gradient-color="isDark ? '#363636' : '#C9C9C9'"
+          >
+            <video 
+              src="/model/video/6.mp4" 
+              class="w-full h-full cursor-pointer" 
+              onclick="this.paused ? this.play() : this.pause()"
+            ></video>
+          </CardSpotlight>
+        </div>
+      </div>
+      <div class="absolute w-full bottom-0 z-10">
+        <div class="gradient-opacity">
+          <div class="h-60"></div>
+        </div>
+      </div>
+      <div class="absolute w-full top-0 z-10">
+        <div class="gradient-opacity-reverse">
+          <div class="h-60"></div>
+        </div>
+      </div>
+    </div>
+    <!-- 游戏展示 -->
+    <div
+      class="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-[#1f1f1f] md:shadow-xl"
+    >
+      <span
+        class="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10"
+      >
+        My Like Game
+      </span>
+
+      <!-- Confetti component with ref -->
+      <Confetti
+        ref="confettiRef"
+        class="absolute left-0 top-0 z-0 size-full"
+        @mouseenter="fireConfetti"
+      />
+    </div>
+    <div class="w-full bg-[#1f1f1f]">
+      <BentoGrid class="mx-auto px-20 bg-[#1f1f1f]">
+        <BentoGridItem
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <template #header>
+            <div class="flex size-full space-x-4 overflow-hidden">
+              <div class="flex size-full flex-1 rounded-md bg-zinc-800">
+                <img :src="item.src" class="w-full h-full object-cover rounded-md" />
+              </div>
+            </div>
+          </template>
+
+          <template #title>
+            <strong>{{ item.title }}</strong>
+          </template>
+
+          <template #icon> </template>
+
+          <template #description>
+            <p>{{ item.description }}</p>
+          </template>
+        </BentoGridItem>
+      </BentoGrid>
+    </div>
+    <!-- <div class="flex flex-col items-center justify-center bg-[#1f1f1f]">
+      <ParticleImage
+        class="w-full object-cover"
+        image-src="https://picsum.photos/id/237/200/300"
+        particleGap="5"
+        :responsive-width="true"
+      />
+    </div> -->
+    <!-- 电影展示 -->
+    <div class="bg-gradient relative">
       <div class="h-60"></div>
     </div>
     <div class="w-full relative">
-      <div class="w-full relative z-0">
+      <div class="w-full relative z-0" >
         <movie-top></movie-top>
       </div>
       <div class="w-full flex-center absolute top-0 z-10">
-        <fade-up>
+        <fade-up ref="movieTopEl">
           <VisibilityObserver>
             <HyperText 
-              text="MY favorite movies" 
+              text="MY favorite  movies & video" 
               color="#fff" 
-              duration="1500" 
-              class="text-5xl"
-              fontSize="3rem"
+              duration="200" 
+              class="text-8xl"
+              fontSize="5rem"
             ></HyperText>
           </VisibilityObserver>
         </fade-up>
@@ -98,6 +237,7 @@
 
 
     </div>
+    <!-- 阅读展示 -->
     <div
       class="relative bg-[#1f1f1f] flex size-full flex-col items-center justify-center overflow-hidden px-40 pb-40 pt-8 md:pb-60 md:shadow-xl"
     >
@@ -106,31 +246,19 @@
       >
         Read
       </span>
-      <Globe class="" />
+      <Globe class="" ref="readTopEl"/>
       <div
         class="pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]"
       ></div>
     </div>
-    <div class="grid place-content-center p-10">
-      <Book>
-        <BookHeader>
-          <Icon
-            name="heroicons:book-open-solid"
-            size="24"
-          />
-        </BookHeader>
-        <BookTitle>
-          <h1>The Book</h1>
-        </BookTitle>
-        <BookDescription>
-          <p>Hover me to animate!</p>
-        </BookDescription>
-      </Book>
+    <div class="bg-container">
+      <div class="common-container">
+        <bookDisplay>
+        </bookDisplay>
+      </div>
     </div>
-
-    <div class="bg-[#104166]">
+    <div class="bg-[#1f1f1f]">
       <div class="h-20"></div>
-      
     </div>
     <div class="bg-container">
       <div class="h-20"></div>
@@ -141,18 +269,16 @@
     <div class="nav-bar-content">
       <div class="nav-bar-content-main">
         <div class="logo-container">
-          <img class="logo" src="@assets/vue.svg" alt="">
+          <img class="logo" src="/logo.png" alt="">
           <div class="text">LazyDog</div>
         </div>
         <div class="nav-bar-content-links">
           <div @click="goToHome" class="nav-bar-content-link">Home</div>
-          <div class="nav-bar-content-link">Music</div>
-          <div class="nav-bar-content-link">Photo</div>
-          <div class="nav-bar-content-link">Code</div>
-          <div class="nav-bar-content-link">Video</div>
-          <div class="nav-bar-content-link">Game</div>
-          <div class="nav-bar-content-link">Movie</div>
-          <div class="nav-bar-content-link">Read</div>
+          <div @click="goToDesign" class="nav-bar-content-link">Design</div>
+          <!-- <div @click="goToCode" class="nav-bar-content-link">Code</div> -->
+          <div @click="goToGame" class="nav-bar-content-link">Game</div>
+          <div @click="goToMovie" class="nav-bar-content-link">Movie</div>
+          <div @click="goToRead" class="nav-bar-content-link">Read</div>
         </div>
         <div class="nav-bar-content-links">
           <contact-me></contact-me>
@@ -165,6 +291,14 @@
 </template>
 
 <script setup>
+import Confetti from "@mycomponent/ui/confetti/Confetti.vue";
+import Vortex from "@mycomponent/ui/vortex-background/Vortex.vue";
+import ParticleImage from "@mycomponent/ui/particle-image/ParticleImage.vue";
+import LineShadowText from "@mycomponent/ui/line-shadow-text/LineShadowText.vue";
+import ExpandableGallery from "@mycomponent/ui/expandable-gallery/ExpandableGallery.vue";
+import TextHoverEffect from "@mycomponent/ui/text-hover-effect/TextHoverEffect.vue";
+import ParticleWhirlpoolBg from "@mycomponent/ui/particle-whirlpool/ParticleWhirlpoolBg.vue";
+import bookDisplay from "@mycomponent/display/bookDisplay/bookDisplay.vue";
 import BentoGrid from "@mycomponent/ui/bento-grid/BentoGrid.vue";
 import BentoGridItem from "@mycomponent/ui/bento-grid/BentoGridItem.vue";
 import Book from "@mycomponent/ui/book/Book.vue";
@@ -195,35 +329,59 @@ const cursorEl = ref(null)
 const appElShow = ref(true)
 
 const homeTopEl = ref(null)
+const designTopEl = ref(null)
+const readTopEl = ref(null)
+const gameTopEl = ref(null)
+const movieTopEl = ref(null)
+
+const confettiRef = ref(null);
+
+// Function to trigger confetti
+function fireConfetti() {
+  confettiRef.value?.fire({});
+}
+
+const expandableGalleryImages = [
+  "/model/1.webp",
+  "/model/7.jpg",
+  "/model/4.webp",
+  "/model/5.webp",
+  "/model/3.webp",
+  "/model/6.webp",
+  "/model/9.jpg",
+  "/model/2.webp",
+];
 
 const items = [
   {
-    title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
+    src: "https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/548430/header_alt_assets_25_schinese.jpg?t=1737629460",
+    title: "Deep Rock Galactic",
+    description: "100% 可破坏的地形、以及可爱的虫子 & 多矮人impact",
   },
   {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
+    src:"https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/1515210/header.jpg?t=1698932510",
+    title: "Rusty Lake",
+    description: "锈湖出品, 必属精品, 谜语人独立解谜游戏",
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and experience design.",
+    src: "https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/105600/header.jpg?t=1731252354",
+    title: "Terraria",
+    description: "300颗够吗?哎呀,我没有史莱姆昂啊",
   },
   {
-    title: "The Power of Communication",
-    description: "Understand the impact of effective communication in our lives.",
+    src: "https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/1127400/header.jpg?t=1707161363",
+    title: "Mindustry",
+    description: "工业+塔防, 你能守住你的基地吗?物流管理+联机+编程",
   },
   {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
+    src: "https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/221260/header.jpg?t=1668741117",
+    title: "little inferno",
+    description: "烧,都可以🔥烧🔥",
   },
   {
-    title: "The Joy of Creation",
-    description: "Experience the thrill of bringing ideas to life.",
-  },
-  {
-    title: "The Spirit of Adventure",
-    description: "Embark on exciting journeys and thrilling discoveries.",
+    src:"https://shared.cdn.queniuqe.com/store_item_assets/steam/apps/1948280/header.jpg?t=1729241259",
+    title: "Sokpop Collective",
+    description: "袜子组合, 一群荷兰人的独立游戏工作室",
   },
 ];
 
@@ -232,38 +390,50 @@ const reviews = [
     name: "Jack",
     username: "@jack",
     body: "I've never seen anything like this before. It's amazing. I love it.",
-    img: "https://avatar.vercel.sh/jack",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/c2seabnsfozypl81523522065/260?imageView2/2/w/328/h/456",
   },
   {
     name: "Jill",
     username: "@jill",
     body: "I don't know what to say. I'm speechless. This is amazing.",
-    img: "https://avatar.vercel.sh/jill",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/hi1gl5jmmsxbotc1568114131/260?imageView2/2/w/328/h/456",
   },
   {
     name: "John",
     username: "@john",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/john",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/whbvvx89kisclc1t1444923992.jpg/260?imageView2/2/w/328/h/456",
   },
   {
     name: "Jane",
     username: "@jane",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jane",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/rzunc9o5l5h1kzj1567587284/260?imageView2/2/w/328/h/456",
   },
   {
     name: "Jenny",
     username: "@jenny",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/jenny",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/tlvwiitova3d9m11524562617/260?imageView2/2/w/328/h/456",
   },
   {
     name: "James",
     username: "@james",
     body: "I'm at a loss for words. This is amazing. I love it.",
-    img: "https://avatar.vercel.sh/james",
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/mzc00200hi47zu41689316787901/260?imageView2/2/w/328",
   },
+  {
+    img: "https://puui.qpic.cn/vcover_vt_pic/0/sdp00162wrymy4x1652239918/260?imageView2/2/w/328/h/456"
+  },
+  {
+    img: "https://cdn.04pic.com/image/65aa85818f6cf.jpg"
+  },
+  {
+    img: "https://cdn.04pic.com/image/6326f3ac9847b.jpg"
+  },
+  {
+    img: "/movie/jojo.png"
+  }
 ];
 
 // Split reviews into two rows
@@ -271,13 +441,15 @@ const firstRow = ref(reviews.slice(0, reviews.length / 2));
 const secondRow = ref(reviews.slice(reviews.length / 2));
 
 function handleMouseMove(e) {
-  if (cursorEl.value) {
-    if(Math.abs(e.movementX) + Math.abs(e.movementY) > 3){
-      rad = Math.atan2(e.movementX, -e.movementY);
+  requestAnimationFrame(() => {
+    if (cursorEl.value) {
+      if(Math.abs(e.movementX) + Math.abs(e.movementY) > 3){
+        rad = Math.atan2(e.movementX, -e.movementY);
+      }
+      
+      cursorEl.value.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(${rad}rad)`
     }
-    
-    cursorEl.value.style.transform = `translate(${e.clientX}px, ${e.clientY}px) rotate(${rad}rad)`
-  }
+  })
 }
 
 function handleMouseOver(e) {
@@ -287,6 +459,14 @@ function handleMouseOver(e) {
   } else {
     cursorEl.value.style.display = 'block'
   }
+}
+
+const designKey = ref(0)
+let designTimer = null
+const visibilityDuration = 30000 // 30s
+
+function refreshDesign() {
+  designKey.value++
 }
 
 onMounted(() => {
@@ -302,17 +482,74 @@ onMounted(() => {
       appElShow.value = true
     }
   })
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        designTimer = setTimeout(() => {
+          refreshDesign()
+        }, visibilityDuration)
+      } else {
+        clearTimeout(designTimer)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  if (designTopEl.value) {
+    observer.observe(designTopEl.value.$el)
+  }
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('mouseover', handleMouseOver)
+  clearTimeout(designTimer)
 })
 
 function goToHome() {
   if (homeTopEl.value) {
     // 访问组件的 DOM 元素
     homeTopEl.value.$el.scrollIntoView({
+      behavior: 'smooth',  // 平滑滚动
+      block: 'start'      // 滚动到顶部对齐
+    })
+  }
+}
+
+function goToDesign() {
+  if (designTopEl.value) {
+    // 访问组件的 DOM 元素
+    designTopEl.value.$el.scrollIntoView({
+      behavior: 'smooth',  // 平滑滚动
+      block: 'start'      // 滚动到顶部对齐
+    })
+  }
+}
+
+function goToRead() {
+  if (readTopEl.value) {
+    // 访问组件的 DOM 元素
+    readTopEl.value.$el.scrollIntoView({
+      behavior: 'smooth',  // 平滑滚动
+      block: 'start'      // 滚动到顶部对齐
+    })
+  }
+}
+
+function goToGame() {
+  if (confettiRef.value) {
+    // 访问组件的 DOM 元素
+    confettiRef.value.$el.scrollIntoView({
+      behavior: 'smooth',  // 平滑滚动
+      block: 'start'      // 滚动到顶部对齐
+    })
+  }
+}
+
+function goToMovie() {
+  if (movieTopEl.value) {
+    // 访问组件的 DOM 元素
+    movieTopEl.value.$el.scrollIntoView({
       behavior: 'smooth',  // 平滑滚动
       block: 'start'      // 滚动到顶部对齐
     })
@@ -372,6 +609,15 @@ function goToHome() {
       transform-origin: top center;
       transition: transform 0.3s ease;
     }
+
+    .common-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1304px;
+      padding: 0 16px;
+    }
   }
 }
 .nav-bar{
@@ -425,6 +671,7 @@ function goToHome() {
           height: 24px;
         }
         .text{
+          color: #fff;
           font-size: 16px;
           font-weight: 700;
           margin-left: 8px;
@@ -499,5 +746,18 @@ function goToHome() {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.absolute-center{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+.gradient-opacity {
+  background: linear-gradient(to bottom, rgba(31, 31, 31, 0), rgba(31, 31, 31, 1));
+}
+
+.gradient-opacity-reverse {
+  background: linear-gradient(to top, rgba(31, 31, 31, 0), rgba(31, 31, 31, 1));
 }
 </style>
