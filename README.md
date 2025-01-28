@@ -38,3 +38,7 @@ npm run dev
 - `homeTop.vue`: html加载路径
 - `vite.config.js`: base path
 - `catDisplay`: live2d path
+
+## 🐧联系
+QQ:3220429027@qq.com
+WxId:_3220429027
