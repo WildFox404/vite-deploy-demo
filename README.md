@@ -1,7 +1,9 @@
 # My Blog ✨
 
 **个人博客**
-
+- 链接地址:
+- https://wildfox404.github.io/vite-deploy-demo/
+- github pages部署
 ---
 
 ## 📖 项目简介  
