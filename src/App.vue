@@ -271,7 +271,7 @@
     </div>
   </div>
   
-  <div class="nav-bar">
+  <div class="nav-bar" v-if="appElShow">
     <div class="nav-bar-content">
       <div class="nav-bar-content-main">
         <div class="logo-container">
